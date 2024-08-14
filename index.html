@@ -1,0 +1,105 @@
+<!-- 12 Cards. Functionality: open new page when click, giving information regarding the card -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards Website</title>
+
+    <style>
+         #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+         }
+   
+         .class {
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+         }
+   
+         img {
+            width: 200px;
+            height: 200px;
+         }
+
+         #container div {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid black;
+            cursor: pointer;
+            border-radius: 10px;
+         }
+
+         #container div:hover {
+            background-color: #ddd;
+         }
+    </style>
+ </head>
+ <body>
+   <h1 style="text-align: center;">Tourist Places Cards</h1>
+    <div id="container">
+    </div>
+
+
+   <script>
+      class Card {
+         constructor(title, image, description, link) {
+            this.title = title;
+            this.image = image;
+            this.description = description;
+            this.link = link;
+         }
+
+         render() {
+            let div = document.createElement("div");
+            div.classList.add("class");
+            div.innerHTML = `
+               <img src="${this.image}" alt="${this.title}">
+               <h2>${this.title}</h2>
+               <p>${this.description}</p>
+            `;
+            div.addEventListener("click", () => {
+               window.open(this.link, "_blank");
+            });
+            document.getElementById("container").appendChild(div);
+         }
+      }
+
+         const card1 = new Card("Kashmir", "https://www.holidify.com/images/bgImages/KASHMIR.jpg", "Popularly referred to as the Paradise on Earth, Kashmir is a breathtaking region in northwestern India...", "cards/card1.html");
+         const card2 = new Card("Srinagar", "https://www.holidify.com/images/bgImages/SRINAGAR.jpg", "Famously known as 'Heaven on Earth, Srinagar is located in the union territory of Jammu & Kashmir, on the banks of river Jhelum. Known for its serene lakes...", "cards/card2.html");
+         const card3 = new Card("Ladakh", "https://www.holidify.com/images/bgImages/LADAKH.jpg", "Ladakh, located in the northernmost region of India, is a high-altitude desert renowned for its breathtaking landscapes, serene monasteries, and unique cultural heritage. Formerly falling in the state of Jammu & Kashmir...", "cards/card3.html");
+         const card4 = new Card("Gangtok", "https://www.holidify.com/images/bgImages/GANGTOK.jpg", "Incredibly alluring, pleasantly boisterous and wreathed in clouds - Gangtok, the capital of Sikkim, is one of the most popular hill stations in India. Lying at the height of 1650 m...", "cards/card4.html");
+         const card5 = new Card("Coorg", "https://www.holidify.com/images/bgImages/COORG.jpg", "Located amidst imposing mountains in Karnataka with a perpetually misty landscape, Coorg is a popular coffee producing hill station. It is popular for its beautiful green..", "cards/card5.html");
+         const card6 = new Card("Nainital", "https://www.holidify.com/images/bgImages/NAINITAL.jpg", "Nainital, a picturesque hill station in the Kumaon region of Uttarakhand, is known for its serene lakes, lush green hills, and pleasant climate. Located approximately 300 kms...", "cards/card6.html");
+         const card7 = new Card("Munisiyari", "https://www.holidify.com/images/bgImages/MUNSIYARI.jpg", "Often referred to as Little Kashmir, Munsiyari is a cosy hamlet located in the Pithoragarh District of Uttarakhand. Situated at an altitude of 2298 metres...", "cards/card7.html");
+         const card8 = new Card("Ramgarh", "https://www.holidify.com/images/bgImages/RAMGARH.jpg", "Tucked away in the lap of Himalayas in Nainital district of Uttarakhand, Ramgarh boasts of unexplored natural beauty and old world charm. It is perched at an elevation of 1789m...", "cards/card8.html");
+         const card9 = new Card("Mussoorie", "https://www.holidify.com/images/bgImages/MUSSOORIE.jpg", "Mussoorie, often referred to as the Queen of the Hills, is a picturesque hill station located in the Dehradun district of Uttarakhand, India. Perched at an altitude of approximately 2,000 meters...", "cards/card9.html");
+         const card10 = new Card("Auli", "https://www.holidify.com/images/bgImages/AULI.jpg", "Auli, nestled in the Chamoli district of Uttarakhand, India, is a premier destination for winter sports enthusiasts and nature lovers. Known for its stunning snow-covered...", "cards/card10.html");
+         const card11 = new Card("Munnar", "https://www.holidify.com/images/bgImages/MUNNAR.jpg", "Famous for the tea estates, greenery, winding roads, blanket of mist, and viewpoints, Munnar is a hill station in Kerala, located in the Idukki district. Lying in the Western Ghats...", "cards/card11.html");
+         const card12 = new Card("Shimla", "https://www.holidify.com/images/bgImages/SHIMLA.jpg", "Shimla is the capital of Himachal Pradesh and a popular hill-station among Indian families and honeymooners. Situated at the height of 2200m...", "cards/card12.html");
+
+         card1.render();
+         card2.render();
+         card3.render();
+         card4.render();
+         card5.render();
+         card6.render();
+         card7.render();
+         card8.render();
+         card9.render();
+         card10.render();
+         card11.render();
+         card12.render();
+   </script>
+ </body>
+
+ </html>
